@@ -156,8 +156,4 @@ Feel free to fork this project and submit pull requests. If you find any issues 
 
 ## License
 This project is open-source and available under the [MIT License](LICENSE).
-```
 
----
-
-You can copy and paste this into a `README.md` file for your project.
