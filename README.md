@@ -1,6 +1,3 @@
-Certainly! Below is the **README.md** template you can use for your **Student Management System** project:
-
-```markdown
 # Student Management System - C++ Project
 
 ## Overview
