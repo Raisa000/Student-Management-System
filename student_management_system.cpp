@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include<conio.h>
 using namespace std;
 
 // Base class: Person
@@ -123,5 +124,5 @@ int main() {
     cout << "\nUpdated Person Details:" << endl;
     sm.displayAll();
 
-    
+    getch();
 }
