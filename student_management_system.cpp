@@ -11,7 +11,10 @@ protected:
 
 public:
     // Constructor to initialize a Person
-    Person(string name, int age) : name(name), age(age) {}
+    Person(string name, int age) {
+        this->name=name;
+        this->age=age;
+    }
 
     // Virtual function to display person details
     virtual void displayDetails() {
