@@ -145,7 +145,6 @@ void displayMenu() {
 int main() {
     // Login authentication
     if (!login()) {
-        getch();
         return 0;
     }
 
@@ -200,5 +199,4 @@ int main() {
     }
 
     getch();
-    return 0;
 }
