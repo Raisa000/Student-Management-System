@@ -125,8 +125,9 @@ bool login() {
     if (username == validUsername && password == validPassword) {
         cout << "Login successful!" << endl;
         return true;
-    } else {
-        cout << "Invalid credentials. Access denied!" << endl;
+    } 
+    else {
+        cout << "Access denied!" << endl;
         return false;
     }
 }
