@@ -160,7 +160,7 @@ int main() {
         if (choice == 1) {
             // Add a Student
             string name;
-            int age,
+            int age;
             int studentID;
             float grade;
             cout << "Enter Student Name: "<<endl;
