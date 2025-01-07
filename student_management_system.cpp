@@ -163,13 +163,13 @@ int main() {
             int age,
             int studentID;
             float grade;
-            cout << "Enter Student Name: ";
+            cout << "Enter Student Name: "<<endl;
             cin >> name;
-            cout << "Enter Age: ";
+            cout << "Enter Age: " << endl;;
             cin >> age;
-            cout << "Enter Student ID: ";
+            cout << "Enter Student ID: " << endl;
             cin >> studentID;
-            cout << "Enter Grade: ";
+            cout << "Enter Grade: " << endl;
             cin >> grade;
             sm.addPerson(new Student(name, age, studentID, grade));
             cout << "Student added successfully!" << endl;
@@ -178,11 +178,11 @@ int main() {
             string name;
             string subject;
             int age;
-            cout << "Enter Teacher Name: ";
+            cout << "Enter Teacher Name: " <<endl;
             cin >> name;
-            cout << "Enter Subject: ";
+            cout << "Enter Subject: " << endl;
             cin >> subject;
-            cout << "Enter Age: ";
+            cout << "Enter Age: " << endl;
             cin >> age;
             sm.addPerson(new Teacher(name, age, subject));
             cout << "Teacher added successfully!" << endl;
