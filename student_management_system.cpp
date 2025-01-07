@@ -174,7 +174,8 @@ int main() {
             cout << "Student added successfully!" << endl;
         } else if (choice == 2) {
             // Add a Teacher
-            string name, subject;
+            string name;
+            string subject;
             int age;
             cout << "Enter Teacher Name: ";
             cin >> name;
