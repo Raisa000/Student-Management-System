@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include<conio.h>
+#include <conio.h>
 using namespace std;
 
 // Base class: Person
@@ -12,8 +12,8 @@ protected:
 public:
     // Constructor to initialize a Person
     Person(string name, int age) {
-        this->name=name;
-        this->age=age;
+        this->name = name;
+        this->age = age;
     }
 
     // Virtual function to display person details
@@ -33,8 +33,12 @@ private:
 
 public:
     // Constructor to initialize a Student
-    Student(string name, int age, int studentID, float grade)
-        : Person(name, age), studentID(studentID), grade(grade) {}
+    Student(string name, int age, int studentID, float grade): Person(name, age) {
+
+        this->studentID=studentID;
+        this->grade=grade;
+
+        }
 
     // Override displayDetails() for Student-specific details
     void displayDetails() override {
@@ -58,8 +62,12 @@ private:
 
 public:
     // Constructor to initialize a Teacher
-    Teacher(string name, int age, string subject)
-        : Person(name, age), subject(subject) {}
+    Teacher(string name, int age, string subject): Person(name, age) {
+
+    this->subject=subject;
+
+
+    }
 
     // Override displayDetails() for Teacher-specific details
     void displayDetails() override {
@@ -102,30 +110,92 @@ public:
     }
 };
 
+// Function for login authentication
+bool login() {
+    string username, password;
+    const string validUsername = "IUBAT";
+    const string validPassword = "123";
+
+    cout << "===== Login =====" << endl;
+    cout << "Username: ";
+    cin >> username;
+    cout << "Password: ";
+    cin >> password;
+
+    if (username == validUsername && password == validPassword) {
+        cout << "Login successful!" << endl;
+        return true;
+    } else {
+        cout << "Invalid credentials. Access denied!" << endl;
+        return false;
+    }
+}
+
+// Function to display the menu
+void displayMenu() {
+    cout << "\n===== Menu =====" << endl;
+    cout << "1. Add Student" << endl;
+    cout << "2. Add Teacher" << endl;
+    cout << "3. Display All" << endl;
+    cout << "4. Exit" << endl;
+    cout << "Enter your choice: ";
+}
+
 int main() {
+    // Login authentication
+    if (!login()) {
+        getch();
+        return 0;
+    }
+
     // Create a StudentManagement object
     StudentManagement sm;
+    int choice;
 
-    // Create Students and Teachers
-    Student* student1 = new Student("Noore Safa Raisa", 21, 23303428, 88.5);
-    Student* student2 = new Student("Md. Hasibul Hasan", 22, 23303419, 92.0);
-    Teacher* teacher1 = new Teacher("Tania Akter Mim", 31, "OOP in C++");
+    while (true) {
+        displayMenu();
+        cin >> choice;
 
-    // Add them to the management system
-    sm.addPerson(student1);
-    sm.addPerson(student2);
-    sm.addPerson(teacher1);
-
-    // Display details of all persons in the system
-    cout << "All Person Details:" << endl;
-    sm.displayAll();
-
-    // Update a student's grade
-    student1->updateGrade(95.0);
-
-    // Display updated details of all persons
-    cout << "\nUpdated Person Details:" << endl;
-    sm.displayAll();
+        if (choice == 1) {
+            // Add a Student
+            string name;
+            int age, studentID;
+            float grade;
+            cout << "Enter Student Name: ";
+            cin >> name;
+            cout << "Enter Age: ";
+            cin >> age;
+            cout << "Enter Student ID: ";
+            cin >> studentID;
+            cout << "Enter Grade: ";
+            cin >> grade;
+            sm.addPerson(new Student(name, age, studentID, grade));
+            cout << "Student added successfully!" << endl;
+        } else if (choice == 2) {
+            // Add a Teacher
+            string name, subject;
+            int age;
+            cout << "Enter Teacher Name: ";
+            cin >> name;
+            cout << "Enter Age: ";
+            cin >> age;
+            cout << "Enter Subject: ";
+            cin >> subject;
+            sm.addPerson(new Teacher(name, age, subject));
+            cout << "Teacher added successfully!" << endl;
+        } else if (choice == 3) {
+            // Display all persons
+            cout << "All Person Details:" << endl;
+            sm.displayAll();
+        } else if (choice == 4) {
+            // Exit
+            cout << "Exiting the program. Goodbye!" << endl;
+            break;
+        } else {
+            cout << "Invalid choice. Please try again." << endl;
+        }
+    }
 
     getch();
+    return 0;
 }
