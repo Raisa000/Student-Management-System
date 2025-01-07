@@ -180,10 +180,10 @@ int main() {
             int age;
             cout << "Enter Teacher Name: ";
             cin >> name;
-            cout << "Enter Age: ";
-            cin >> age;
             cout << "Enter Subject: ";
             cin >> subject;
+            cout << "Enter Age: ";
+            cin >> age;
             sm.addPerson(new Teacher(name, age, subject));
             cout << "Teacher added successfully!" << endl;
         } else if (choice == 3) {
